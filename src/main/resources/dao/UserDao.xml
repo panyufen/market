@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teamarket.demo.dao.UserDao">
+
+    <select id="getUserInfo" resultType="com.teamarket.demo.model.MarketAdmin">
+        SELECT m.*
+        FROM
+            market_admin m
+        WHERE
+            m.username=#{username}
+    </select>
+
+    <select id="getUserInfoById" resultType="com.teamarket.demo.model.MarketAdmin">
+        SELECT m.*
+        FROM
+            market_admin m
+        WHERE
+            m.id=#{id}
+    </select>
+</mapper>
