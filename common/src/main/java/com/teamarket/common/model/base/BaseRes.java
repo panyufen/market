@@ -1,4 +1,4 @@
-package com.teamarket.demo.model.base;
+package com.teamarket.common.model.base;
 
 /**
  * ${enclosing_method}:${todo} Description &lt;br/&gt;

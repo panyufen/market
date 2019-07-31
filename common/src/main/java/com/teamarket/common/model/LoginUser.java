@@ -1,4 +1,4 @@
-package com.teamarket.demo.model;
+package com.teamarket.common.model;
 
 /**
  * ${enclosing_method}:${todo} Description &lt;br/&gt;
@@ -11,7 +11,23 @@ package com.teamarket.demo.model;
  * ${tags}
  * ${todo} Description &lt;br/&gt;
  */
-public class UserInfo {
+public class LoginUser {
+    private String name;
+    private String pwd;
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 }

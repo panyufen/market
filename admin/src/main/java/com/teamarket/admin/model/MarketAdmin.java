@@ -1,11 +1,10 @@
-package com.teamarket.demo.model;
+package com.teamarket.admin.model;
 
 
-public class MarketAdmin {
+import com.teamarket.common.model.base.BaseUser;
 
-  private long id;
-  private String username;
-  private String password;
+public class MarketAdmin extends BaseUser {
+
   private String icon;
   private String email;
   private String nickName;
@@ -13,33 +12,6 @@ public class MarketAdmin {
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp loginTime;
   private long status;
-
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
 
   public String getIcon() {

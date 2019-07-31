@@ -5,7 +5,7 @@
     <select id="getUserInfo" resultType="com.teamarket.demo.model.MarketAdmin">
         SELECT m.*
         FROM
-            market_member m
+            market_admin m
         WHERE
             m.username=#{username}
     </select>
@@ -13,15 +13,15 @@
     <select id="getUserInfoById" resultType="com.teamarket.demo.model.MarketAdmin">
         SELECT m.*
         FROM
-            market_member m
+            market_admin m
         WHERE
             m.id=#{id}
     </select>
 
     <update id="updateUserLoginTime">
-        update market_member m
+        update market_admin m
         SET
-            m.login_time=#{user.loginTime}
+             m.login_time=#{user.loginTime},
         WHERE
             m.id=#{user.id}
     </update>

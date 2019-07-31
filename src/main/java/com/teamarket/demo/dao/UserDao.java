@@ -1,7 +1,7 @@
 package com.teamarket.demo.dao;
 
 
-import com.teamarket.demo.model.MarketAdmin;
+import com.teamarket.demo.model.MarketMember;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -14,11 +14,14 @@ public interface UserDao {
     /**
      * 获取用户信息
      */
-    MarketAdmin getUserInfo(@Param("username") String username);
+    MarketMember getUserInfo(@Param("username") String username);
 
     /**
      * 获取用户信息
      */
-    MarketAdmin getUserInfoById(@Param("id") String id);
+    MarketMember getUserInfoById(@Param("id") String id);
+
+
+    void updateUserLoginTime(@Param("user") MarketMember user);
 
 }

@@ -1,4 +1,6 @@
-package com.teamarket.demo.model;
+package com.teamarket.common.model;
+
+import com.teamarket.admin.model.MarketAdmin;
 
 /**
  * ${enclosing_method}:${todo} Description &lt;br/&gt;
@@ -11,23 +13,25 @@ package com.teamarket.demo.model;
  * ${tags}
  * ${todo} Description &lt;br/&gt;
  */
-public class LoginUser {
-    private String name;
-    private String pwd;
+public class LoginRes<T> {
 
-    public String getName() {
-        return name;
+    private String token;
+
+    private T user;
+
+    public String getToken() {
+        return token;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String getPwd() {
-        return pwd;
+    public T getUser() {
+        return user;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setUser(T user) {
+        this.user = user;
     }
 }
