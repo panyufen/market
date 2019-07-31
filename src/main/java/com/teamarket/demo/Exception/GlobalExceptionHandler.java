@@ -1,6 +1,7 @@
 package com.teamarket.demo.Exception;
 
-import com.teamarket.demo.model.base.BaseRes;
+
+import com.teamarket.common.model.base.BaseRes;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

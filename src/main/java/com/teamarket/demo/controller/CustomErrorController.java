@@ -1,7 +1,7 @@
 package com.teamarket.demo.controller;
 
 import com.google.gson.Gson;
-import com.teamarket.demo.model.base.BaseRes;
+import com.teamarket.common.model.base.BaseRes;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

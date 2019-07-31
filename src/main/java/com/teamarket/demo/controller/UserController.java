@@ -5,9 +5,9 @@ import com.google.gson.Gson;
 import com.teamarket.common.model.LoginRes;
 import com.teamarket.common.model.LoginUser;
 import com.teamarket.common.model.base.BaseRes;
-import com.teamarket.demo.security.PassToken;
-import com.teamarket.demo.security.UserLoginToken;
-import com.teamarket.demo.service.impl.UserServiceImpl;
+import com.teamarket.common.security.PassToken;
+import com.teamarket.common.security.UserLoginToken;
+import com.teamarket.demo.service.IUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,23 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * ${enclosing_method}:${todo} Description &lt;br/&gt;
- * ${todo} Describe applicable conditions of method - Optional.&lt;br/&gt;
- * ${todo} Description of method execution process - Optional.&lt;br/&gt;
- * ${todo} Describe usage of method - Optional.&lt;br/&gt;
- *
- * @exception ${todo}
- * Description &lt;br/&gt;
- * ${tags}
- * ${todo} Description &lt;br/&gt;
- */
 @Controller
 public class UserController {
 
     @Autowired
-    private UserServiceImpl userService;
-
+    IUserService userService;
 
 
     @PassToken

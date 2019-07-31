@@ -2,9 +2,8 @@ package com.teamarket.demo.service.impl;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.teamarket.admin.model.MarketAdmin;
+import com.teamarket.common.Exception.BadCredentialsException;
 import com.teamarket.common.model.LoginUser;
-import com.teamarket.demo.Exception.BadCredentialsException;
 import com.teamarket.demo.dao.UserDao;
 import com.teamarket.demo.model.MarketMember;
 import com.teamarket.demo.service.IUserService;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 
-@Service("userService")
+@Service
 public class UserServiceImpl implements IUserService {
 
     @Autowired
@@ -34,9 +33,9 @@ public class UserServiceImpl implements IUserService {
         }
 
         userInfo.setLoginTime(new Timestamp(System.currentTimeMillis()));
-        userDao.updateUser(userInfo);
+        userDao.updateUserLoginTime(userInfo);
 
-        String token = JWT.create().withAudience(userInfo.getId() + "")
+        String token = JWT.create().withAudience(String.valueOf(userInfo.getId()),"member")
                 .sign(Algorithm.HMAC256(userInfo.getPassword()));
 
         return token;

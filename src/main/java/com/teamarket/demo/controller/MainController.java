@@ -1,6 +1,7 @@
 package com.teamarket.demo.controller;
 
-import com.teamarket.demo.security.UserLoginToken;
+
+import com.teamarket.common.security.UserLoginToken;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,5 @@
 package com.teamarket.common.model;
 
-import com.teamarket.admin.model.MarketAdmin;
 
 /**
  * ${enclosing_method}:${todo} Description &lt;br/&gt;

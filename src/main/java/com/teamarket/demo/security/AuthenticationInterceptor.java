@@ -5,8 +5,10 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.teamarket.common.model.base.BaseUser;
+import com.teamarket.common.security.PassToken;
+import com.teamarket.common.security.UserLoginToken;
 import com.teamarket.demo.dao.UserDao;
-import com.teamarket.demo.model.MarketAdmin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +38,11 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     Logger logger = LoggerFactory.getLogger(AuthenticationInterceptor.class);
 
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
+
+//    @Autowired
+//    private UserAdminDao userAdminDao;
+
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) throws Exception {
@@ -63,12 +70,21 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 }
                 // 获取 token 中的 user id
                 String userId;
+                //用户类型
+                String userType;
                 try {
-                    userId = JWT.decode(token).getAudience().get(0);
+                    List<String> audiences = JWT.decode(token).getAudience();
+                    userId = audiences.get(0);
+                    userType = audiences.get(1);
                 } catch (JWTDecodeException j) {
                     throw new RuntimeException("非法token，请重新登陆");
                 }
-                MarketAdmin user = userDao.getUserInfoById(userId);
+                BaseUser user=null;
+//                if("admin".equals(userType)) {
+//                    user = userAdminDao.getUserInfoById(userId);
+//                }else{
+                    user = userDao.getUserInfoById(userId);
+//                }
                 if (user == null) {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }

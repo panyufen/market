@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
  * 首页内容管理自定义Dao
  * Created by macro on 2019/1/28.
  */
-public interface UserDao {
+public interface UserDao{
 
     /**
      * 获取用户信息
